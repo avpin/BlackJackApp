@@ -2,42 +2,23 @@ package com.e.blackjackapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.res.Resources;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    Deck deck;
-    ImageView imageView;
-    Button button;
-    TextView textView;
-    int count;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        count = 0;
-
-        button = findViewById(R.id.button);
-        imageView = findViewById(R.id.imageView);
-        textView = findViewById(R.id.textView);
-        deck = new Deck(getResources(), this);
+        Button button = findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (count >= 52){
-                    count = 0;
-                };
-                Card c = deck.getCard(count++);
-                textView.setText("Name: "+ c.name + " Value: " + c.value);
-                imageView.setImageDrawable(c.face);
+                startActivity(new Intent(getApplicationContext(), CardTestActivity.class));
             }
         });
-
     }
-
 }
