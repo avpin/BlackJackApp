@@ -16,61 +16,61 @@ public class Deck {
     ArrayList<VectorDrawable> cardImgs = new ArrayList<VectorDrawable>();
 
 
-    public Deck(Resources res, Context c) {  //the drawable initalizer needs context and the res resource from Activity
+    public Deck(Resources res, Context context) {  //the drawable initalizer needs context and the res resource from Activity
         deck = new ArrayList<Card>(52);
         //for some reason, extending an array of Drawables is not allowed. Pardon the block, but each card vector is in cardImgs
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c2, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c3, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c4, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c5, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c6, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c7, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c8, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c9, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c10, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.cj, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.cq, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.ck, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.ca, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s2, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s3, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s4, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s5, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s6, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s7, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s8, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s9, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s10, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.sj, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.sq, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.sk, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.sa, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h2, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h3, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h4, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h5, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h6, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h7, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h8, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h9, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h10, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.hj, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.hq, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.hk, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.ha, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d2, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d3, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d4, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d5, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d6, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d7, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d8, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d9, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d10, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.dj, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.dq, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.dk, c.getTheme()));
-        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.da, c.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c2, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c3, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c4, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c5, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c6, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c7, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c8, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c9, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c10, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.cj, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.cq, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.ck, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.ca, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s2, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s3, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s4, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s5, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s6, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s7, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s8, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s9, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.s10, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.sj, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.sq, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.sk, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.sa, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h2, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h3, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h4, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h5, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h6, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h7, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h8, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h9, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.h10, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.hj, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.hq, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.hk, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.ha, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d2, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d3, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d4, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d5, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d6, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d7, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d8, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d9, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.d10, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.dj, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.dq, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.dk, context.getTheme()));
+        cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.da, context.getTheme()));
 
         generateDeck();
     }
@@ -80,5 +80,7 @@ public class Deck {
                 deck.add(new Card(cardImgs.get(x),values[x%13],names[x%13]));
             }
     }
-
+    public Card getCard(int index){
+        return deck.get(index);
+    }
 }
