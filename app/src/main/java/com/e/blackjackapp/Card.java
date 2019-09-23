@@ -12,4 +12,6 @@ public class Card {
         this.value = value;
         this.name = name;
     }
+
+
 }
