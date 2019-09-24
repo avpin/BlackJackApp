@@ -10,5 +10,5 @@ Aaron: 300 lines of java
 
 Alyssa:
 - 700 lines of code
-       * 200 lines of xml 
-       * 500 lines of java
+       **200 lines of xml 
+       **500 lines of java
