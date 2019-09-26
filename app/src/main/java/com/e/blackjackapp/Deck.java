@@ -4,19 +4,33 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.*;
 
+
 import java.util.ArrayList;
+import java.util.Random;
 
 import androidx.appcompat.widget.VectorEnabledTintResources;
 
 public class Deck {
+    Random rand;
     final int NUM_IN_DECK = 52;
-    ArrayList<Card> deck;
+    ArrayList<Card> deck; //initializes in the order of (clubs, spades, hearts, diamonds; aces high)
+
     String[] names = {"Two","Three","Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"};
     int[] values = {2,3,4,5,6,7,8,9,10,10,10,10,11};
     ArrayList<VectorDrawable> cardImgs = new ArrayList<VectorDrawable>();
 
-
+    /**
+     * Constructor,
+     * initialises each card object in the deck array in club, spade, heart, diamond order with aces high.
+     *
+     * initializes each drawable object, fills cardImgs;
+     * this is done in constructor as context and res folder is needed in Drawable construtor
+     *
+     * @param res - getResources(), needed to locate drawable files
+     * @param context - needed for drawable constructor
+     */
     public Deck(Resources res, Context context) {  //the drawable initalizer needs context and the res resource from Activity
+        rand = new Random();
         deck = new ArrayList<Card>(52);
         //for some reason, extending an array of Drawables is not allowed. Pardon the block, but each card vector is in cardImgs
         cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.c2, context.getTheme()));
@@ -72,15 +86,57 @@ public class Deck {
         cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.dk, context.getTheme()));
         cardImgs.add((VectorDrawable) res.getDrawable(R.drawable.da, context.getTheme()));
 
-        generateDeck();
+        for(int x = 0; x < NUM_IN_DECK; x++){
+            deck.add(new Card(cardImgs.get(x),values[x%13],names[x%13]));
+        }
     }
 
-    private void generateDeck() {
-            for(int x = 0; x < NUM_IN_DECK; x++){
-                deck.add(new Card(cardImgs.get(x),values[x%13],names[x%13]));
-            }
-    }
+    /**
+     * returns Card at a given index in the deck ordered by clubs, spades, hearts, diamonds; with aces high
+     * @param index
+     * @return Card from deck
+     */
     public Card getCard(int index){
         return deck.get(index);
+    }
+
+    /**
+     * draws a random card from deck (with replacement)
+     * @return a random Card object
+     */
+    public Card getRandomCard(){
+        return getCard(rand.nextInt(52));
+    }
+
+    /**
+     * returns the point value of given card object
+     * @param c
+     * @return interger point value of card
+     */
+    public int getCardValue(Card c){
+        return c.value;
+    }
+
+    /**
+     * returns the card's numerical value if index in the range of 0-52
+     * @param index of card in deck (clubs, spades, hearts, diamonds; aces high)
+     * @return integer point value of card
+     */
+    public int getCardValue(int index){
+        return (index >= 52 && index < 0) ? -1 : deck.get(index).value;
+    }
+
+    /**
+     * returns the card value give the text name
+     * @param name
+     * @return the value, or -1 if name not found
+     */
+    public int getCardValue(String name){
+        for (int x = 0; x < names.length; x++){
+            if (names[x].equals(name)){
+                return values[x];
+            }
+        }
+        return -1;
     }
 }
