@@ -3,20 +3,35 @@ package com.e.blackjackapp;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.*;
-
-
 import java.util.ArrayList;
 import java.util.Random;
 
-import androidx.appcompat.widget.VectorEnabledTintResources;
-
 public class Deck {
     Random rand;
+    /**
+     * Number of Cards in full deck
+     */
     final int NUM_IN_DECK = 52;
-    ArrayList<Card> deck; //initializes in the order of (clubs, spades, hearts, diamonds; aces high)
+    /**
+     * Card ArrayList in the order of clubs, spades, hearts, diamonds; 2-10, Jack, Queen, King, Ace
+     */
+    ArrayList<Card> deck;
+    /**
+     * ArrayList of Card objects yet to be drawn, resets back to a shallow copy of deck on next draw when empty
+     */
+    ArrayList<Card> draw; //cards not yet drawn
 
+    /**
+     * Array used to initialize Card objects' names
+     */
     String[] names = {"Two","Three","Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"};
+    /**
+     * Array used to initialize Card objects' point values
+     */
     int[] values = {2,3,4,5,6,7,8,9,10,10,10,10,11};
+    /**
+     * Array used to initialize Card objects' Drawable objects (svg images), context and res folder needed, so intialized in constructor
+     */
     ArrayList<VectorDrawable> cardImgs = new ArrayList<VectorDrawable>();
 
     /**
@@ -89,6 +104,7 @@ public class Deck {
         for(int x = 0; x < NUM_IN_DECK; x++){
             deck.add(new Card(cardImgs.get(x),values[x%13],names[x%13]));
         }
+        draw = (ArrayList<Card>)deck.clone();
     }
 
     /**
@@ -100,12 +116,20 @@ public class Deck {
         return deck.get(index);
     }
 
+
     /**
-     * draws a random card from deck (with replacement)
+     * Draws (and removes) a random card from draw pile.
+     * Resets draw pile when empty
      * @return a random Card object
      */
-    public Card getRandomCard(){
-        return getCard(rand.nextInt(52));
+    public Card drawCard(){
+        if (draw.isEmpty()) {
+            draw = (ArrayList<Card>)deck.clone();
+            return drawCard();
+        }
+        else{
+            return draw.remove(rand.nextInt(draw.size()));
+        }
     }
 
     /**
