@@ -30,7 +30,8 @@ public class CardTestActivity extends AppCompatActivity {
                 if (count >= 52){
                     count = 0;
                 };
-                Card c = deck.getCard(count++);
+                //Card c = deck.getCard(count++);
+                Card c = deck.drawCard();
                 textView.setText("Name: "+ c.name + " Value: " + c.value);
                 imageView.setImageDrawable(c.face);
             }
