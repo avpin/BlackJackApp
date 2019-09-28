@@ -13,12 +13,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button button = findViewById(R.id.b2);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button cardBtn = findViewById(R.id.b2);
+        cardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), CardTestActivity.class));
             }
         });
+
+        Button gameBtn = findViewById(R.id.b2);
+        gameBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), GameActivity.class));
+            }
+        });
+
+
     }
 }
