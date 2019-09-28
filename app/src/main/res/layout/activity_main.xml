@@ -6,29 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/b2"
+    <LinearLayout
+        android:id="@+id/LL_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="8dp"
-        android:text="Cards Test"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="363dp">
 
-    <Button
-        android:id="@+id/b"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="8dp"
-        android:text="New Game"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/b2" />
+        <TextView
+            android:id="@+id/title_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/blackjack"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textColor="@color/secondaryColor" />
+
+        <ImageView
+            android:id="@+id/iv_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/card_back"
+            app:srcCompat="@drawable/back" />
+
+        <Button
+            android:id="@+id/b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/primary_button"
+            android:text="@string/new_game"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@android:color/background_light" />
+
+        <Button
+            android:id="@+id/b2"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/secondary_button"
+            android:text="@string/cards_test"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/background_light" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
