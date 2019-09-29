@@ -71,13 +71,13 @@ public class Player {
             for (int i = 0; i<p.hand.size(); i++) { 
                 //if player has has one of either jack, queen, king, combined with ace or a ten and an ace, they win
                 if (((p.hand.get(i).getName().equals("Jack") || p.hand.get(i).getName().equals("Queen") ||
-                    p.hand.get(i).getName().equals("King")) && (p.hand.get(i).getName() == "Ace"))
+                    p.hand.get(i).getName().equals("King")) && (p.hand.get(i).getName().equals("Ace")))
                     || ((p.hand.get(i).getValue() == 10 && p.hand.get(i).getName().equals("Ace") ))){
                     return 1;
                 }
                 //if other player has one of either jack, queen, king, combined with ace, or a ten and an ace, they win
                 if (((this.hand.get(i).getName().equals("Jack") || this.hand.get(i).getName().equals("Queen") ||
-                    this.hand.get(i).getName().equals("King")) && (this.hand.get(i).getName() == "Ace"))
+                    this.hand.get(i).getName().equals("King")) && (this.hand.get(i).getName().equals("Ace")))
                     || ((this.hand.get(i).getValue() == 10 && this.hand.get(i).getName().equals("Ace") ))){
                     return -1;
                 }
