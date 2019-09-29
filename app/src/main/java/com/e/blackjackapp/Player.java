@@ -125,12 +125,4 @@ public class Player {
         }
     }
 
-    /**
-     * Ends player turn
-     */
-    public void stop(){
-
-    }
-
-
 }
