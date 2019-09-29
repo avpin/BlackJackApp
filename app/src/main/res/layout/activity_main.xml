@@ -22,7 +22,7 @@
             android:fontFamily="sans-serif"
             android:text="@string/blackjack"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="@color/secondaryColor" />
 
         <ImageView
