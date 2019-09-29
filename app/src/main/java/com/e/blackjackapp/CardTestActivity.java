@@ -20,7 +20,7 @@ public class CardTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cardtest);
         count = 0;
 
-        button = findViewById(R.id.button);
+        button = findViewById(R.id.hitBtn);
         imageView = findViewById(R.id.imageView);
         textView = findViewById(R.id.textView);
         deck = new Deck(getResources(), this);
