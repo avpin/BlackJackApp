@@ -1,5 +1,7 @@
 package com.e.blackjackapp;
 
+import android.graphics.drawable.VectorDrawable;
+
 import java.util.ArrayList;
 
 /**
@@ -124,11 +126,9 @@ public class Player {
      * Draws another card using the drawCard method
      * @return
      */
-    public ArrayList<Card> hit(Deck cardDeck){
-
-        Card new_card =  cardDeck.drawCard();
-        hand.add(new_card);
-        return hand;
+    public void hit(){
+        hand.add(deck.drawCard());
+        tally();
     }
 
     /**
