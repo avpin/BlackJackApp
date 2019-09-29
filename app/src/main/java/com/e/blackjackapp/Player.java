@@ -15,8 +15,8 @@ public class Player {
     Deck deck;
     int points;
     /**
-     * Player Object Constructor
-     */
+    * Player Object Constructor
+    */
     public Player (Deck d){
         hand = new ArrayList<Card>();
         this.deck = d;
@@ -53,7 +53,8 @@ public class Player {
     }
 
     /**
-     * -1: lose, 0: tie, 1:win, 2:player is closer, 3:other is closer
+     * Compares the hand status of whichever player called it to the other player
+     * -1: lose, 0: tie, 1:win
      * @param p
      */
     public int comparePoints(Player p){
@@ -61,7 +62,7 @@ public class Player {
         int otherPoints = this.points;
         //if both are 21, tied
         if(playerPoints ==21 && otherPoints==21){
-            for (int i = 0; i<p.hand.size(); i++) {
+            for (int i = 0; i<p.hand.size(); i++) { 
                 //if player has has one of either jack, queen, king, combined with ace or a ten and an ace, they win
                 if (((p.hand.get(i).getName().equals("Jack") || p.hand.get(i).getName().equals("Queen") ||
                     p.hand.get(i).getName().equals("King")) && (p.hand.get(i).getName().equals("Ace")))
@@ -74,11 +75,11 @@ public class Player {
                     || ((this.hand.get(i).getValue() == 10 && this.hand.get(i).getName().equals("Ace") ))){
                     return -1;
                 }
+                else{
+                    return 0;
+                }
 
             }
-
-
-            return 0;
         }
         if(playerPoints > 21){
             return -1;
@@ -87,17 +88,17 @@ public class Player {
             return 1;
         }
 
-            //if player is closer to 21
-            if ((21 - playerPoints) > (21 - otherPoints)) {
-
-                return 2;
-            }
-            //if compared player is closer to 21
+            //if player is closer to 21, they win
             if ((21 - playerPoints) < (21 - otherPoints)) {
 
-                return 3;
+                return 1;
             }
-            //if both hand sums are equally close to 21
+            //if compared player is closer to 21, then player loses
+            if ((21 - playerPoints) > (21 - otherPoints)) {
+
+                return -1;
+            }
+            //if both hand sums are equally close to 21, they tie
             if ((21 - playerPoints) == (21 - otherPoints)) {
                 return 0;
             }
@@ -106,6 +107,8 @@ public class Player {
 
 
     }
+
+
 
     /**
      * Draws another card using the drawCard method
