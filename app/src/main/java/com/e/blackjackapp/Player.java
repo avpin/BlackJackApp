@@ -22,6 +22,10 @@ public class Player {
         tally();
     }
 
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
+
     /**
      * Keeps track of current hand value
      *
