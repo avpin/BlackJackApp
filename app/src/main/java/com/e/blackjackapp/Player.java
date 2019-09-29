@@ -2,6 +2,8 @@ package com.e.blackjackapp;
 
 import android.graphics.drawable.VectorDrawable;
 
+import java.util.ArrayList;
+
 /**
  *
  *
@@ -9,10 +11,13 @@ import android.graphics.drawable.VectorDrawable;
  */
 public class Player {
 
+    private ArrayList<Card> hand;
+
     /**
      * Player Object Constructor
      */
-    public Player (){
+    public Player (ArrayList<Card> hand){
+        this.hand = hand;
         String handStatus;
     }
 
@@ -20,10 +25,11 @@ public class Player {
      * Draws another card using the drawCard method
      * @return
      */
-    public Card hit(Deck cardDeck){
+    public ArrayList<Card> hit(Deck cardDeck){
 
         Card new_card =  cardDeck.drawCard();
-        return new_card;
+        hand.add(new_card);
+        return hand;
     }
 
     /**
