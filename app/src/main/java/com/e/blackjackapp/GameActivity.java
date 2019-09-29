@@ -34,7 +34,11 @@ public class GameActivity extends AppCompatActivity {
         hitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                player.hit();
+                if (player.hit()){
+                }
+                else {
+                    hitButton.setBackgroundResource(R.drawable.light_primary_button);
+                }
                 updateHandView(playerHand,player);
             }
         });
