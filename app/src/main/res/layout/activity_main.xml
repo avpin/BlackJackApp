@@ -22,13 +22,13 @@
             android:fontFamily="sans-serif"
             android:text="@string/blackjack"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="@color/secondaryColor" />
 
         <ImageView
             android:id="@+id/iv_main"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="408dp"
             android:contentDescription="@string/card_back"
             app:srcCompat="@drawable/back" />
 
