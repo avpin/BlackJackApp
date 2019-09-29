@@ -25,34 +25,40 @@ public class GameActivity extends AppCompatActivity {
 
 
         dealerHand = findViewById(R.id.llDealerHand);
-        dealerHand.removeAllViews();
-        for (Card c: dealer.getHand()){
-            int width = (getResources().getDisplayMetrics().widthPixels)/dealer.getHand().size();
-            ImageView cardFace = new ImageView(this);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, 300);
-            cardFace.setLayoutParams(layoutParams);
-            cardFace.setImageDrawable(c.getFace());
-            dealerHand.addView(cardFace);
-        }
-        playerHand = findViewById(R.id.llPlayerHand);
-        playerHand.removeAllViews();
-        for (Card c: player.getHand()){
-            int width = (getResources().getDisplayMetrics().widthPixels)/dealer.getHand().size();
-            ImageView cardFace = new ImageView(this);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, 300);
-            cardFace.setLayoutParams(layoutParams);
-            cardFace.setImageDrawable(c.getFace());
-            playerHand.addView(cardFace);
-        }
+        updateHandView(dealerHand,dealer);
 
-        hitButton = findViewById(R.id.newGame_game);
+        playerHand = findViewById(R.id.llPlayerHand);
+        updateHandView(playerHand, player);
+
+        hitButton = findViewById(R.id.hitBtn_game);
         hitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Player.hit();
+                player.hit();
+                updateHandView(playerHand,player);
+            }
+        });
+        stopButton = findViewById(R.id.stopBtn_game);
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dealer.turn();
             }
         });
 
+
+    }
+
+    private void updateHandView(LinearLayout hand, Player player) {
+        hand.removeAllViews();
+        for (Card c: player.getHand()){
+            int width = (getResources().getDisplayMetrics().widthPixels)/player.getHand().size();
+            ImageView cardFace = new ImageView(this);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, 300);
+            cardFace.setLayoutParams(layoutParams);
+            cardFace.setImageDrawable(c.getFace());
+            hand.addView(cardFace);
+        }
     }
 
 }

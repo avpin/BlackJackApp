@@ -6,4 +6,6 @@ public class Dealer extends Player {
         super(d);
     }
 
+    public void turn() {
+    }
 }

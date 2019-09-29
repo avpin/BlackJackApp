@@ -4,23 +4,19 @@ import android.graphics.drawable.VectorDrawable;
 
 import java.util.ArrayList;
 
-/**
- *
- *
- *
- */
 public class Player {
 
-        private ArrayList<Card> hand;
-        Deck deck;
-        int points;
-        /**
-         * Player Object Constructor
-         */
+    private ArrayList<Card> hand;
+    Deck deck;
+    int points;
+    /**
+     * Player Object Constructor
+     */
     public Player (Deck d){
         hand = new ArrayList<Card>();
         this.deck = d;
-        generatehand();
+        hand.add(deck.drawCard());
+        hand.add(deck.drawCard());
         tally();
     }
 
@@ -86,20 +82,18 @@ public class Player {
     }
 
     /**
-     *
-     */
-    private void generatehand() {
-        hand.add(deck.drawCard());
-        hand.add(deck.drawCard());
-    }
-
-    /**
      * Draws another card using the drawCard method
-     * @return
+     * @return boolean if sucessful
      */
-    public void hit(){
-        hand.add(deck.drawCard());
-        tally();
+    public boolean hit(){
+        if(hand.size() < 5) {
+            hand.add(deck.drawCard());
+            tally();
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     /**

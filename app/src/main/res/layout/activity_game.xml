@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/newGame">
+        app:layout_constraintTop_toBottomOf="@id/newGame_game">
 
         <TextView
             android:id="@+id/dealer_title"
@@ -124,7 +124,7 @@
         app:layout_constraintTop_toBottomOf="@+id/llPlayer">
 
         <Button
-            android:id="@+id/hitBtn"
+            android:id="@+id/hitBtn_game"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/primary_button"
@@ -133,7 +133,7 @@
             android:textColor="@android:color/white" />
 
         <Button
-            android:id="@+id/hitBtn2"
+            android:id="@+id/stopBtn_game"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
