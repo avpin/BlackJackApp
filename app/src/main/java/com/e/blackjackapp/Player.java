@@ -44,12 +44,12 @@ public class Player {
             }
         }
 
-        while(points>21){
-                if(aceCounter>0){
-                    points -= 10;
-                    aceCounter--;
-                }
+        if(points>21){
+            while(aceCounter>0){
+                points -= 10;
+                aceCounter--;
             }
+        }
     }
 
     /**
@@ -125,4 +125,7 @@ public class Player {
         }
     }
 
+    public boolean busted() {
+        return points > 21;
+    }
 }

@@ -7,6 +7,7 @@ public class Game {
     Player player1;
     Dealer dealer;
     Deck deck;
+    Boolean PlayerWin;
 
     public Game(Resources res, Context context){
         deck = new Deck(res, context);

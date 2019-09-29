@@ -2,6 +2,7 @@ package com.e.blackjackapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,19 +35,29 @@ public class GameActivity extends AppCompatActivity {
         hitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (player.hit()){
-                }
-                else {
+
+                if (player.getHand().size() >= 5){
                     hitButton.setBackgroundResource(R.drawable.light_primary_button);
                 }
-                updateHandView(playerHand,player);
+                else{
+                    player.hit();
+                    updateHandView(playerHand,player);
+                }
             }
         });
         stopButton = findViewById(R.id.stopBtn_game);
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dealer.turn();
+                if(player.busted())
+                {
+                    Intent i = new Intent(getApplicationContext(), EndActivity.class);
+                    i.putExtra("won", false);
+                    startActivity(i);
+                }
+                else {
+                    dealer.turn();
+                }
             }
         });
 
@@ -57,7 +68,7 @@ public class GameActivity extends AppCompatActivity {
         hand.removeAllViews();
         for (Card c: player.getHand()){
             int width = (getResources().getDisplayMetrics().widthPixels)/player.getHand().size();
-            ImageView cardFace = new ImageView(this);
+            ImageView cardFace = new ImageView(getApplicationContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, 300);
             cardFace.setLayoutParams(layoutParams);
             cardFace.setImageDrawable(c.getFace());
