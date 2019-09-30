@@ -2,6 +2,12 @@ package com.e.blackjackapp;
 
 import android.graphics.drawable.VectorDrawable;
 
+/**
+ * A model of a playing Card
+ *
+ * @author Alyssa Schilke
+ * @version 1.0 09/30/2019
+ */
 public class Card {
     /**
      * The Card's image

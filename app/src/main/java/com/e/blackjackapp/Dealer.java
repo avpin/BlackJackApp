@@ -1,6 +1,11 @@
 package com.e.blackjackapp;
 
-
+/**
+ * A model of a BlackJack Dealer
+ *
+ * @author Aaron Pin
+ * @version 1.0 09/29/2019
+ */
 public class Dealer extends Player {
 
     /**

@@ -16,6 +16,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+/**
+ * A class representing a BlackJack Table.
+ * This class sets up the game, takes input from user and notifies user when game is over.
+ *
+ * @author Aaron Pin
+ * @author Alyssa Schilke
+ * @version 1.0 09/29/2019
+ */
 public class GameActivity extends AppCompatActivity {
     /**
      * The layout of each player's hand

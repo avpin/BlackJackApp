@@ -6,7 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+/**
+ * The class processing user input from the main menu, starts the game.
+ *
+ * @author Alyssa Schilke
+ * @author Aaron Pin
+ * @version 1.0 09/28/2019
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override

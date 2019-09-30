@@ -3,6 +3,14 @@ package com.e.blackjackapp;
 
 import java.util.ArrayList;
 
+
+/**
+ * A model of a BlackJack Player
+ *
+ * @author Aaron Pin
+ * @author alyssaschilke
+ * @version 1.0 09/29/2016
+ */
 public class Player {
 
     /**

@@ -6,6 +6,12 @@ import android.graphics.drawable.VectorDrawable;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * A model of a deck of playing cards
+ *
+ * @author Alyssa Schilke
+ * @version 1.0 09/29/2019
+ */
 public class Deck {
     Random rand;
     /**
