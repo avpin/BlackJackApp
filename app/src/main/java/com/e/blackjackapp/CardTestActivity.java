@@ -14,7 +14,11 @@ public class CardTestActivity extends AppCompatActivity {
     Button button;
     TextView textView;
     int count;
+
     @Override
+    /**
+     * OnCreate of CardTest, an Activity designed to test the Deck and Card classes
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardtest);

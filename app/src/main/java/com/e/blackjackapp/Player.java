@@ -1,40 +1,39 @@
 package com.e.blackjackapp;
 
-import android.graphics.drawable.VectorDrawable;
 
 import java.util.ArrayList;
 
-/**
- *
- *
- *
- */
 public class Player {
 
     private ArrayList<Card> hand;
     Deck deck;
     int points;
+
     /**
-    * Player Object Constructor
-    */
-    public Player (Deck d){
+     * Player Object Constructor
+     * @param deck
+     */
+    public Player (Deck deck){
         hand = new ArrayList<Card>();
-        this.deck = d;
+        this.deck = deck;
         hand.add(deck.drawCard());
         hand.add(deck.drawCard());
         tally();
     }
 
+    /**
+     * Retrieves an ArrayList of the Card in the Player's hand
+     * @return hand
+     */
     public ArrayList<Card> getHand() {
         return hand;
     }
 
     /**
-     * Keeps track of current hand value
-     *
+     * updates current hand point value
      */
     private void tally() {
-        int aceCounter =0;
+        int aceCounter = 0;
         for (int i = 0; i<hand.size(); i++){
             if(hand.get(i).getName().equals("Ace")){
                 aceCounter++;
@@ -44,12 +43,11 @@ public class Player {
             }
         }
 
-        if(points>21){
-            while(aceCounter>0){
-                points -= 10;
-                aceCounter--;
-            }
+        while(aceCounter>0 && points > 21){
+            points -= 10;
+            aceCounter--;
         }
+
     }
 
     /**
@@ -116,6 +114,10 @@ public class Player {
         }
     }
 
+    /**
+     * returns true if Player has over 21 points, false otherwise
+     * @return true if busted
+     */
     public boolean busted() {
         return points > 21;
     }

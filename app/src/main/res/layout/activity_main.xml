@@ -25,10 +25,20 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="@color/secondaryColor" />
 
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/by_aaron_pin_and_alyssa_schilke"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/primaryColor" />
+
         <ImageView
             android:id="@+id/iv_main"
             android:layout_width="match_parent"
-            android:layout_height="408dp"
+            android:layout_height="400dp"
             android:contentDescription="@string/card_back"
             app:srcCompat="@drawable/back" />
 
@@ -37,24 +47,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/primary_button"
-            android:text="@string/new_game"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@android:color/background_light" />
-
-        <Button
-            android:id="@+id/main_btn2"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/secondary_button"
-            android:text="@string/cards_test"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="@string/new_game"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@android:color/background_light" />
 
     </LinearLayout>
