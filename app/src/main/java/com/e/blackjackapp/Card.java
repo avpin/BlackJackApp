@@ -3,17 +3,27 @@ package com.e.blackjackapp;
 import android.graphics.drawable.VectorDrawable;
 
 public class Card {
+    /**
+     * The Card's image
+     */
     VectorDrawable face;
+    /**
+     * The card's point value
+     */
     int value;
+    /**
+     * The card's name
+     */
     String name;
 
     /**
      * This is the constructor for the Card object
-     * @param face - the VectorDrawable asset (image of card)
+     *
+     * @param face  - the VectorDrawable asset (image of card)
      * @param value - the points a card is worth (aces initially 11)
-     * @param name - the string name of the card
+     * @param name  - the string name of the card
      */
-    public Card (VectorDrawable face, int value, String name) {
+    public Card(VectorDrawable face, int value, String name) {
         this.face = face;
         this.value = value;
         this.name = name;
@@ -21,6 +31,7 @@ public class Card {
 
     /**
      * retrieves the image resource of the card
+     *
      * @return face
      */
     public VectorDrawable getFace() {
@@ -29,6 +40,7 @@ public class Card {
 
     /**
      * Returns the card's point value
+     *
      * @return value
      */
     public int getValue() {
@@ -37,6 +49,7 @@ public class Card {
 
     /**
      * Return the cards rank as a string
+     *
      * @return name
      */
     public String getName() {

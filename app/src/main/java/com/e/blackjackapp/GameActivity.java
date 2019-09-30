@@ -17,50 +17,73 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
+    /**
+     * The layout of each player's hand
+     */
     LinearLayout playerHand, dealerHand;
+    /**
+     * The player object for this Game
+     */
     Player player;
+    /**
+     * The Dealer object for this Game
+     */
     Dealer dealer;
-    Button hitButton, stopButton, newGameButton;
+    /**
+     * The Deck object for this Game
+     */
     Deck deck;
-    int PlayerWin;
+    /**
+     * The buttons the user can interact with.
+     */
+    Button hitButton, stopButton, newGameButton;
 
+    /**
+     * An integer indicating if the Player has won
+     */
+    int PlayerWin;
+    /**
+     * Used for the Alert Dialog at the end of the game
+     */
     AlertDialog.Builder builder;
 
     @Override
     /**
-     * This method runs the game, notifying the user when the game is over, and setting the functionality of the buttons
+     * This method sets up the game, notifys the user with results when the game is over, and processes user input from the buttons
      */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         builder = new AlertDialog.Builder(this);
 
-        //Setting message manually and performing action on button click
+        //Setting message and buttons on alert
         builder.setMessage("What do you want to do next?")
                 .setCancelable(false)
                 .setPositiveButton("New Game", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        startActivity(new Intent(getApplicationContext(),GameActivity.class));
+                        startActivity(new Intent(getApplicationContext(), GameActivity.class));
                     }
                 })
                 .setNegativeButton("Exit to Main Menu", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        //  Action for 'NO' Button
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     }
                 });
 
+        //initialize Objects
         deck = new Deck(getResources(), getApplicationContext());
         player = new Player(deck);
         dealer = new Dealer(deck);
 
+        //display initial cards
         dealerHand = findViewById(R.id.llDealerHand);
-        updateHandView(dealerHand,dealer);
+        updateHandView(dealerHand, dealer);
 
         playerHand = findViewById(R.id.llPlayerHand);
         updateHandView(playerHand, player);
 
 
+        //set up Buttons
         hitButton = findViewById(R.id.hitBtn_game);
         hitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,20 +104,18 @@ public class GameActivity extends AppCompatActivity {
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(player.busted())
-                {
+                if (player.busted()) {
                     PlayerWin = -1;
-                }
-                else {
+                } else {
                     PlayerWin = dealer.turn(player);
-                    Log.d("myTag", ""+ player.points + " " + dealer.points);
+                    Log.d("myTag", "" + player.points + " " + dealer.points);
                     updateHandView(dealerHand, dealer);
                 }
 
                 //Creating dialog box
                 AlertDialog alert = builder.create();
                 String title = "";
-                switch (PlayerWin){
+                switch (PlayerWin) {
                     case -1:
                         title = "You Lose. The Dealer has won.";
                         break;
@@ -109,28 +130,26 @@ public class GameActivity extends AppCompatActivity {
                 alert.show();
             }
         });
-
         newGameButton = findViewById(R.id.newGame_game);
         newGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),GameActivity.class));
+                startActivity(new Intent(getApplicationContext(), GameActivity.class));
             }
         });
 
-
     }
-
 
     /**
      * This method updates the giving linearLayout to show the images assocates with the cards in the given player's hand
-     * @param hand - the Linear Layout to be changed
+     *
+     * @param hand   - the Linear Layout to be changed
      * @param player - the player Object whose hand of cards the layout displays
      */
     private void updateHandView(LinearLayout hand, Player player) {
         hand.removeAllViews();
-        for (Card c: player.getHand()){
-            int width = (getResources().getDisplayMetrics().widthPixels)/player.getHand().size();
+        for (Card c : player.getHand()) {
+            int width = (getResources().getDisplayMetrics().widthPixels) / player.getHand().size();
             ImageView cardFace = new ImageView(getApplicationContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, 400);
             cardFace.setLayoutParams(layoutParams);
