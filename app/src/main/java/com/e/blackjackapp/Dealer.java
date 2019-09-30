@@ -11,26 +11,23 @@ public class Dealer extends Player {
         super(d);
     }
 
-    public boolean turn(Player p){
+    public int turn(Player p) {
 
         //
-        if(comparePoints(p) == 1){
+        if (comparePoints(p) == -1) {
             //dealer wins
             //while this.dealer;
-            return true;
+            return -1;
         }
-        if(comparePoints(p) == -1){
-            return false;
+        if (comparePoints(p) == 1) {
+            return 1;
         }
         //
-        if(comparePoints(p) == 2 ) {
+        if (comparePoints(p) == 2) {
             p.hit();
             return turn(p);
         }
-
-    public boolean turn(Player p){
-
-        return false;
+        return 0;
     }
 
 }
