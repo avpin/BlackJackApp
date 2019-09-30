@@ -21,7 +21,7 @@ public class GameActivity extends AppCompatActivity {
     Dealer dealer;
     Button hitButton, stopButton, newGameButton;
     Deck deck;
-    Boolean PlayerWin;
+    int PlayerWin;
 
     AlertDialog.Builder builder;
 
@@ -81,15 +81,28 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(player.busted())
                 {
-                    PlayerWin = false;
+                    PlayerWin = -1;
                 }
                 else {
                     PlayerWin = dealer.turn(player);
                     updateHandView(dealerHand, dealer);
                 }
+
                 //Creating dialog box
                 AlertDialog alert = builder.create();
-                alert.setTitle(PlayerWin ? "You Win!": "You Lose.");
+                String title = "";
+                switch (PlayerWin){
+                    case -1:
+                        title = "You Lose. The Dealer has won.";
+                        break;
+                    case 0:
+                        title = "Tie!";
+                        break;
+                    case 1:
+                        title = "You Win!";
+                        break;
+                }
+                alert.setTitle(title);
                 alert.show();
             }
         });
