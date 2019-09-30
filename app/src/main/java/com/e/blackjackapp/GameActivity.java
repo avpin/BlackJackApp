@@ -66,13 +66,14 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (player.getHand().size() >= 5){
+                if (player.getHand().size() == 4) {
                     hitButton.setBackgroundResource(R.drawable.light_primary_button);
+                } else if (player.getHand().size() >= 5) {
                     Toast.makeText(GameActivity.this, "Max Draw, please press Stop", Toast.LENGTH_SHORT).show();
                 }
-                else{
+                if (player.getHand().size() < 5) {
                     player.hit();
-                    updateHandView(playerHand,player);
+                    updateHandView(playerHand, player);
                 }
             }
         });
