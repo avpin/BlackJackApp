@@ -41,9 +41,9 @@ public class Dealer extends Player {
         //If both have busted
         if (this.busted() && player.busted()) {
             return 0;
-        } else if (this.busted()) {
+        } else if (this.busted()) { //if only dealer has busted
             return 1;
-        } else if (player.busted()) {
+        } else if (player.busted()) { //if only player has busted
             return -1;
         }
 

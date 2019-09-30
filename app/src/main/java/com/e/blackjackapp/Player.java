@@ -34,7 +34,7 @@ public class Player {
     public Player(Deck deck) {
         hand = new ArrayList<Card>();
         this.deck = deck;
-        hand.add(deck.drawCard());
+        hand.add(deck.drawCard()); //initially draw two cards to deck
         hand.add(deck.drawCard());
         tally();
     }
@@ -55,13 +55,13 @@ public class Player {
         int aceCounter = 0;
         for (int i = 0; i < hand.size(); i++) {
             if (hand.get(i).getName().equals("Ace")) {
-                aceCounter++;
+                aceCounter++; //count aces in hand to determine whether ace should be 1 or 11
                 points += hand.get(i).getValue();
             } else {
                 points += hand.get(i).getValue();
             }
         }
-
+        //determines ace value based on whether or not it causes points to be over 21
         while (aceCounter > 0 && points > 21) {
             points -= 10;
             aceCounter--;
