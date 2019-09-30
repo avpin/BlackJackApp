@@ -27,8 +27,10 @@ public class Dealer extends Player {
         int playerPoints = player.points;
         int dealerPoints = this.points;
 
+
+
         //if both are 21, tied
-        if (playerPoints == 21 && dealerPoints == 21) {
+        if (player.blackJack() && this.blackJack()) {
             if (player.getHand().size() == 2 && this.getHand().size() != 2) { //only 2 card BlackJack is Ace and 10 card
                 return 1; //player wins
             } else if (this.getHand().size() == 2 && player.getHand().size() != 2) {
@@ -37,15 +39,25 @@ public class Dealer extends Player {
                 return 0; //tied
             }
         }
+        //one person has blackjack
+        if(this.blackJack() && !player.blackJack()){
+            return -1;
+        }
 
         //If both have busted
         if (this.busted() && player.busted()) {
             return 0;
-        } else if (this.busted()) { //if only dealer has busted
+        }
+        if (this.busted()) { //if only dealer has busted
             return 1;
-        } else if (player.busted()) { //if only player has busted
+        }
+        if (player.busted()) { //if only player has busted
             return -1;
         }
+
+
+
+
 
         if (dealerPoints > playerPoints) {
             return -1;

@@ -16,7 +16,7 @@ public class Player {
     /**
      * The list holding the cards in the player's hand
      */
-    private ArrayList<Card> hand;
+    public  ArrayList<Card> hand;
     /**
      * the deck instance from the game the player is in
      */
@@ -51,7 +51,8 @@ public class Player {
     /**
      * updates current hand point value
      */
-    private void tally() {
+    public void tally() {
+        points = 0;
         int aceCounter = 0;
         for (int i = 0; i < hand.size(); i++) {
             if (hand.get(i).getName().equals("Ace")) {
@@ -91,5 +92,13 @@ public class Player {
      */
     public boolean busted() {
         return points > 21;
+    }
+
+    /**
+     * returns true if Player has 21 points
+     * @return true if 21 points
+     */
+    protected boolean blackJack() {
+        return points == 21;
     }
 }

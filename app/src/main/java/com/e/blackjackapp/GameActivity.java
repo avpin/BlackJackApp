@@ -81,6 +81,8 @@ public class GameActivity extends AppCompatActivity {
         //initialize Objects
         deck = new Deck(getResources(), getApplicationContext());
         player = new Player(deck);
+
+
         dealer = new Dealer(deck);
 
         //display initial cards
@@ -116,7 +118,7 @@ public class GameActivity extends AppCompatActivity {
                     PlayerWin = -1;
                 } else {
                     PlayerWin = dealer.turn(player);
-                    Log.d("myTag", "" + player.points + " " + dealer.points);
+                   // Log.d("myTag", "" + player.points + " " + dealer.points);
                     updateHandView(dealerHand, dealer);
                 }
 
