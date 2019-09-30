@@ -156,12 +156,12 @@ public class GameActivity extends AppCompatActivity {
      */
     private void updateHandView(LinearLayout hand, Player player) {
         hand.removeAllViews();
-        for (Card c : player.getHand()) {
+        for (Card card : player.getHand()) {
             int width = (getResources().getDisplayMetrics().widthPixels) / player.getHand().size();
             ImageView cardFace = new ImageView(getApplicationContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, 400);
             cardFace.setLayoutParams(layoutParams);
-            cardFace.setImageDrawable(c.getFace());
+            cardFace.setImageDrawable(card.getFace());
             hand.addView(cardFace);
         }
     }

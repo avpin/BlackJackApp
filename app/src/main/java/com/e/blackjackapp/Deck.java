@@ -142,11 +142,11 @@ public class Deck {
     /**
      * returns the point value of given card object
      *
-     * @param c
+     * @param card the card object
      * @return interger point value of card
      */
-    public int getCardValue(Card c) {
-        return c.value;
+    public int getCardValue(Card card) {
+        return card.value;
     }
 
     /**
