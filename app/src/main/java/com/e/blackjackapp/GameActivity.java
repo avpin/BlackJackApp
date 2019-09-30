@@ -2,7 +2,9 @@ package com.e.blackjackapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,15 +17,17 @@ public class GameActivity extends AppCompatActivity {
     Player player;
     Dealer dealer;
     Button hitButton, stopButton, newGameButton;
+    Deck deck;
+    Boolean PlayerWin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        Game game = new Game(getResources(), this);
-        player = game.getPlayer1();
-        dealer = game.getDealer();
-
+        deck = new Deck(getResources(), getApplicationContext());
+        player = new Player(deck);
+        dealer = new Dealer(deck);
 
         dealerHand = findViewById(R.id.llDealerHand);
         updateHandView(dealerHand,dealer);
@@ -51,15 +55,17 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(player.busted())
                 {
-                    Intent i = new Intent(getApplicationContext(), EndActivity.class);
-                    i.putExtra("won", false);
-                    startActivity(i);
+                    PlayerWin = false;
                 }
                 else {
-                    dealer.turn();
+                    PlayerWin = dealer.turn(dealerHand, dealer);
                 }
+                Intent i = new Intent(getApplicationContext(), EndActivity.class);
+                i.putExtra("hasWon", PlayerWin);
+                startActivity(i);
             }
         });
+
 
 
     }
