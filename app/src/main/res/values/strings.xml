@@ -5,4 +5,8 @@
     <string name="cards_test">Cards Test</string>
     <string name="card_back">card back</string>
     <string name="by_aaron_pin_and_alyssa_schilke">by Aaron Pin and Alyssa Schilke</string>
+    <string name="dealer_s_hand">Dealer\'s Hand</string>
+    <string name="player_s_hand">Player\'s Hand</string>
+    <string name="hit">Hit</string>
+    <string name="stop">Stop</string>
 </resources>

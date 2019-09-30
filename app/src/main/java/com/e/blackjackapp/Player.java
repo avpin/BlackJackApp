@@ -37,6 +37,7 @@ public class Player {
         for (int i = 0; i<hand.size(); i++){
             if(hand.get(i).getName().equals("Ace")){
                 aceCounter++;
+                points += hand.get(i).getValue();
             }
             else {
                 points += hand.get(i).getValue();

@@ -30,7 +30,7 @@
             android:id="@+id/dealer_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dealer's Hand"
+            android:text="@string/dealer_s_hand"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/primaryColor" />
@@ -70,7 +70,7 @@
             android:id="@+id/player_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Player's Hand"
+            android:text="@string/player_s_hand"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/secondaryColor" />
@@ -108,7 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/primary_button"
-            android:text="Hit"
+            android:text="@string/hit"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@android:color/white" />
 
@@ -119,7 +119,7 @@
             android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:background="@drawable/secondary_button"
-            android:text="Stop"
+            android:text="@string/stop"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@android:color/white" />
     </LinearLayout>
