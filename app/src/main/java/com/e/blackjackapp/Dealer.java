@@ -11,7 +11,7 @@ public class Dealer extends Player {
         super(d);
     }
 
-    public boolean turn(LinearLayout hand, Dealer d){
+    public boolean turn(Player p){
 
         return false;
     }

@@ -88,20 +88,20 @@ public class Player {
             return 1;
         }
 
-            //if player is closer to 21, they win
-            if ((21 - playerPoints) < (21 - otherPoints)) {
+        //if player is closer to 21, they win
+        if ((21 - playerPoints) < (21 - otherPoints)) {
 
-                return 1;
-            }
-            //if compared player is closer to 21, then player loses
-            if ((21 - playerPoints) > (21 - otherPoints)) {
+            return 1;
+        }
+        //if compared player is closer to 21, then player loses
+        if ((21 - playerPoints) > (21 - otherPoints)) {
 
-                return -1;
-            }
-            //if both hand sums are equally close to 21, they tie
-            if ((21 - playerPoints) == (21 - otherPoints)) {
-                return 0;
-            }
+            return -1;
+        }
+        //if both hand sums are equally close to 21, they tie
+        if ((21 - playerPoints) == (21 - otherPoints)) {
+            return 0;
+        }
 
         return 0;
 

@@ -35,6 +35,7 @@ public class GameActivity extends AppCompatActivity {
         playerHand = findViewById(R.id.llPlayerHand);
         updateHandView(playerHand, player);
 
+
         hitButton = findViewById(R.id.hitBtn_game);
         hitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,11 +59,10 @@ public class GameActivity extends AppCompatActivity {
                     PlayerWin = false;
                 }
                 else {
-                    PlayerWin = dealer.turn(dealerHand, dealer);
+                    PlayerWin = dealer.turn(player);
+                    updateHandView(dealerHand, dealer);
                 }
-                Intent i = new Intent(getApplicationContext(), EndActivity.class);
-                i.putExtra("hasWon", PlayerWin);
-                startActivity(i);
+
             }
         });
 
@@ -70,7 +70,11 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    private void updateHandView(LinearLayout hand, Player player) {
+
+
+
+
+    public void updateHandView(LinearLayout hand, Player player) {
         hand.removeAllViews();
         for (Card c: player.getHand()){
             int width = (getResources().getDisplayMetrics().widthPixels)/player.getHand().size();
