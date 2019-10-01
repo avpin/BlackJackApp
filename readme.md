@@ -1,7 +1,7 @@
 # Time Estimate
 Aaron:
 
-Alyssa:
+Alyssa: 5 hours
        
 
 # Lines Of Code Estimate
@@ -12,3 +12,6 @@ Alyssa:
 - 700 lines of code
 -- 200 lines of xml 
 -- 500 lines of java
+
+# Video 
+https://youtu.be/jqHkGEHt-a4
