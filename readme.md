@@ -1,5 +1,5 @@
 # Time Estimate
-Aaron:
+Aaron: 12 hours
 
 Alyssa: 5 hours
        
