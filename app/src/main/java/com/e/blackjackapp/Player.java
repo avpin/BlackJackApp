@@ -9,29 +9,29 @@ import java.util.ArrayList;
  *
  * @author Aaron Pin
  * @author alyssaschilke
- * @version 1.0 09/29/2016
+ * @version 1.0 09/29/2019
  */
-public class Player {
+/*package private*/ class Player {
 
     /**
      * The list holding the cards in the player's hand
      */
-    public  ArrayList<Card> hand;
+    private  ArrayList<Card> hand; // should not declare it public
     /**
      * the deck instance from the game the player is in
      */
-    Deck deck;
+    private Deck deck;
     /**
      * the point value of the cards in <CODE>hand</CODE>
      */
-    int points;
+    /*package private*/ int points; // should not leave it
 
     /**
      * Player Object Constructor
      *
-     * @param deck
+     * @param deck a deck of Cards
      */
-    public Player(Deck deck) {
+    /*package private*/ Player(Deck deck) {
         hand = new ArrayList<Card>();
         this.deck = deck;
         hand.add(deck.drawCard()); //initially draw two cards to deck
@@ -44,22 +44,22 @@ public class Player {
      *
      * @return hand
      */
-    public ArrayList<Card> getHand() {
+    /*package private*/ ArrayList<Card> getHand() {
         return hand;
     }
 
     /**
      * updates current hand point value
      */
-    public void tally() {
+    /*package private*/ void tally() {
         points = 0;
         int aceCounter = 0;
         for (int i = 0; i < hand.size(); i++) {
             if (hand.get(i).getName().equals("Ace")) {
                 aceCounter++; //count aces in hand to determine whether ace should be 1 or 11
-                points += hand.get(i).getValue();
+                points += hand.get(i).getCardValue();
             } else {
-                points += hand.get(i).getValue();
+                points += hand.get(i).getCardValue();
             }
         }
         //determines ace value based on whether or not it causes points to be over 21
@@ -75,7 +75,7 @@ public class Player {
      *
      * @return boolean if sucessful
      */
-    public boolean hit() {
+    /*package private*/ boolean hit() {
         if (hand.size() < 5) {
             hand.add(deck.drawCard());
             tally();
@@ -90,7 +90,7 @@ public class Player {
      *
      * @return true if busted
      */
-    public boolean busted() {
+    /*package private*/ boolean busted() {
         return points > 21;
     }
 
