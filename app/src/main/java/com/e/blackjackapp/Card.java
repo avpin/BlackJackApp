@@ -12,15 +12,16 @@ public class Card {
     /**
      * The Card's image
      */
-    VectorDrawable face;
+
+    private VectorDrawable face; // make your instance variables private
     /**
      * The card's point value
      */
-    int value;
+    private int value; // make your instance variables private.
     /**
      * The card's name
      */
-    String name;
+    private String name; // make your instance variables private. Make it cardName
 
     /**
      * This is the constructor for the Card object

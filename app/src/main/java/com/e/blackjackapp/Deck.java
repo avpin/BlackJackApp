@@ -13,6 +13,7 @@ import java.util.Random;
  * @version 1.0 09/29/2019
  */
 public class Deck {
+
     Random rand;
     /**
      * Number of Cards in full deck
@@ -146,7 +147,7 @@ public class Deck {
      * @return interger point value of card
      */
     public int getCardValue(Card card) {
-        return card.value;
+        return card.getValue(); // use accessors instead of directly accessing a private value
     }
 
     /**
@@ -156,7 +157,7 @@ public class Deck {
      * @return integer point value of card
      */
     public int getCardValue(int index) {
-        return (index >= 52 && index < 0) ? -1 : deck.get(index).value;
+        return (index >= 52 && index < 0) ? -1 : deck.get(index).getValue();
     }
 
     /**

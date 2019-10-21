@@ -24,7 +24,7 @@ public class Dealer extends Player {
      * @return -1 if dealer wins, 0 on tie, and 1 if player wins, -2 if error occurred
      */
     public int turn(Player player) {
-        int playerPoints = player.points;
+        int playerPoints = player.points; // should not directly refer to points
         int dealerPoints = this.points;
 
 
